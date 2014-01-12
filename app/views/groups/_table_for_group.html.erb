@@ -1,0 +1,18 @@
+<table class="game_edit_group_table">
+	
+  <tr>
+    <th width="100%" align="center">Grupo <%= @groups_count %>	</th>
+    <th><%= link_to @group, method: :delete, data: { confirm: 'Desexa desfacer o grupo?' } do %>
+		  <img src="/assets/delete.jpeg" class="game_edit_group_delete_img">
+		<% end %></th>
+  </tr>
+
+  <% @students.each do |student| %>
+    <tr>
+      <td width="75%" align="left"><%= student.name %></td>
+      <td align="center">
+      	<%= link_to 'Eliminar', group_student_path(@group, student), method: :delete, data: { confirm: 'Eliminar estudante do grupo?' } %></td>
+    </tr>
+  <% end %>
+
+</table>

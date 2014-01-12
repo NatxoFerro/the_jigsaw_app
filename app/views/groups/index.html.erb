@@ -1,0 +1,76 @@
+<div class="game_edit_title">
+	
+  <h1>Configuración do xogo "<%= @game.title %>"</h1>
+  
+</div>
+
+<div align="center">
+
+  <ul class="nav nav-tabs nav-justified">
+    <li><%= link_to 'Datos', edit_game_path(@game) %></li>
+    <li><%= link_to 'Documentos', game_topics_path(@game) %></li>
+    <li class="active"><%= link_to 'Estudantes', game_groups_path(@game) %></li>
+  </ul>
+
+  <div class="game_edit_data">
+  	
+    <div class="game_edit_groups_info">	
+  	  <p> <%= render 'info_for_students' %> </p>
+  	  <p> Documentos configurados <b><%= @game.documents.count %></b> </p>
+  	  <p> Número máximo de grupos <b><%= @max_groups %></b> </p>
+  	  <% if (@students < @game.documents.count*@max_groups) %>	  		
+  	  <p> <%= render 'table_for_students' %> </p>
+  	  <% else %>
+  	  <br />
+  	  <br />
+  	  <p class="green_text">Completou a configuración do xogo. <br /> Non se poden engadir máis estudantes.</p>
+  	  <% end %>
+    </div>
+  
+    <div class="game_edit_groups" align="center">
+	
+	<div class="game_edit_subtitle">
+	  <h2>Estudantes do xogo</h2>
+	  <p id="notice"><%= notice %></p>
+	  <% if @number_of_students_error != 0 %>
+	    <p class="red_text">Algún dos grupos ten un número incorrecto de estudantes. O número de estudantes dun grupo debe coincidir co número de documentos engadidos.</p>
+	  <% end %>
+    </div>
+	
+	<div class="game_edit_list_of_groups">
+	<% if @groups.empty? %>
+	  <p>Non hai grupos configurados</p>
+	<% else %>  	
+	  <% @groups.each do |group| %>
+	
+	    <% @group = group %>
+	    <% @groups_count += 1 %>
+	    <% @students = group.users %>
+	
+	  <div class="game_edit_group">
+	  	<%= render 'table_for_group' %>
+  	  </div>
+	  
+      <% end %>
+    <% end %>
+    </div>
+    
+    <div class="game_edit_group_new">
+      <% if (@game.groups.count < @max_groups) %>
+        <%= link_to 'Engadir grupo', new_game_group_path(@game) %>
+      <% else %>
+        Non se poden engadir máis grupos  
+      <% end %>
+    </div>
+    
+    </div>
+  
+  </div>
+	  
+</div>
+
+<div class="game_edit_options"> 
+  
+  <%= link_to 'Rematar', user_games_path(@user)	 %>
+
+</div>

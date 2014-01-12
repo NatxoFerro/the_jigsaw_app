@@ -1,0 +1,37 @@
+<div class="admin_title">
+	
+  <h1>Información do xogo</h1>
+
+</div>
+
+<div class="admin_info">
+			
+	<div class="jigsaws_data">
+	  <h2>Datos do xogo</h2>
+	  <%= render 'show_for_jigsaw' %> 	
+	</div>
+	
+	<div class="jigsaws_groups">
+	  <h2>Estudantes</h2>
+      <% @groups.each do |group| %>
+	    <% @users = group.users %>
+	    <% @users.each do |user| %>
+	      <%= user.name %> <br />
+	    <% end %> 
+	  <% end %>
+	</div>
+	
+	<div class="jigsaws_documents">
+	  <h2>Documentos</h2>
+	  <% @documents.each do |document| %>
+	    <%= document.name %> <br />
+	  <% end %>  
+	</div>
+	
+</div>
+
+<div class="admin_options">
+	
+	<%= link_to 'Lista de xogos', jigsaws_path %>
+	
+</div>

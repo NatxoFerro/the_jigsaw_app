@@ -1,0 +1,42 @@
+<%= form_for @game, url: game_path(@game) do |f| %>
+
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> evitaron gardar os datos:</h2>
+      <ul>
+        <% @game.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group input-group-lg" style="padding-bottom:5px">
+    <span class="input-group-addon" style="width:225px;text-align:right">Título</span>
+    <%= f.text_field :title, class:"form-control" %>
+  </div>
+  <div class="input-group input-group-lg" style="padding-bottom:5px">
+    <span class="input-group-addon" style="width:225px;text-align:right">Descrición</span>
+    <%= f.text_field :description, class:"form-control" %>
+  </div>
+  <div class="input-group input-group-lg" style="padding-bottom:5px">
+    <span class="input-group-addon" style="width:225px;text-align:right">Foto</span>
+    <%= f.text_field :photo, class:"form-control" %>
+  </div>
+  <div class="input-group input-group-lg" style="padding-bottom:5px">
+    <span class="input-group-addon" style="width:225px;text-align:right">Fase</span>
+    <%= f.text_field :phase, class:"form-control" %>
+  </div>
+  
+  <%= fields_for @user do |user| %>
+  	<div class="input-group input-group-lg" style="padding-top:10px">
+      <span class="input-group-addon" style="width:225px;text-align:right">Nome do administrador</span>
+      <%= user.text_field :nick, class:"form-control" %>
+    </div>
+  <% end %>
+  
+  <div class="game_edit_form_button">
+    <%= f.submit "Gardar xogo" %>
+  </div>  
+  
+<% end %>

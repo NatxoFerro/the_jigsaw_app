@@ -1,0 +1,76 @@
+<%= form_for @document, url: jigsaws_path(@jigsaw) do |doc| %>
+<% end %>
+
+<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation, "Confirmation" %>
+<%= f.password_field :password_confirmation %>
+
+<%= fields_for @user do |user| %>
+  <div class="etiqueta">
+    <%= user.label :Nick_do_administrador %>
+  </div>  
+  <div class="dato">
+    <%= user.text_field :nick %>
+  </div>  	
+<% end %>
+  
+  if params[:jigsaw][:phase].empty?  
+      @game = Jigsaw.new(:title => params[:jigsaw][:title], :description => params[:jigsaw][:description], :photo => params[:jigsaw][:photo], :phase => '0')
+    else
+      @game = Jigsaw.new(:title => params[:jigsaw][:title], :description => params[:jigsaw][:description], :photo => params[:jigsaw][:photo], :phase => params[:jigsaw][:phase])
+    end
+    
+  if params[:user][:nick].blank?
+    @user = User.new    
+  elsif User.where(:nick => params[:user][:nick]).first
+    @user = User.where(:nick => params[:user][:nick]).first
+    @game.user = @user
+  end
+      
+  create  app/controllers/students_controller.rb
+      route  get "students/delete"
+      route  get "students/show"
+      route  get "students/edit"
+      route  get "students/new"
+      route  get "students/index"
+      invoke  erb
+      create    app/views/students
+      create    app/views/students/index.html.erb
+      create    app/views/students/new.html.erb
+      create    app/views/students/edit.html.erb
+      create    app/views/students/show.html.erb
+      create    app/views/students/delete.html.erb
+      invoke  test_unit
+      create    test/functional/students_controller_test.rb
+      invoke  helper
+      create    app/helpers/students_helper.rb
+      invoke    test_unit
+      create      test/unit/helpers/students_helper_test.rb
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/students.js.coffee
+      invoke    scss
+      create      app/assets/stylesheets/students.css.scss
+      
+      
+<div class="game_info_label">
+  <b>ID:</b>
+</div>
+<div class="game_info_data">  
+  <%= @game.id %>
+</div>
+<div class="game_info_label">
+  <b>Administrador:</b>
+</div>
+<div class="game_info_data"> 
+  <% if @game.user %>	 
+    	<%= @game.user.name %>
+  <% else %>
+    Sen mestre asociado
+  <% end %>
+</div>
+  

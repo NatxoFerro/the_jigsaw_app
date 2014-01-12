@@ -1,0 +1,22 @@
+<%= form_for(@login) do |f| %>
+  
+  <% if @login.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@login.errors.count, "error") %> prohibited this login from being saved:</h2>
+      <ul>
+      <% @login.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div align="center">
+    <%= f.label :ID_do_usuario %>
+    <%= f.number_field :user, required:"true", autofocus:"true", title:"Introduza o nome de usuario", oninvalid:"this.setCustomValidity('Introduza o nome de usuario')" %>
+  </div>
+  <div align="center">
+    <%= f.submit 'Trocar', class:"button" %>
+  </div>
+  
+<% end %>

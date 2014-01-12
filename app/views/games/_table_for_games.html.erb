@@ -1,0 +1,55 @@
+<div class="table_games_title">
+	
+  <h2>Xogos configurados</h2>
+  	
+</div>
+
+<div align="center" class="table_games_data">
+
+  <% if @games.count == 0 %>
+
+  Non hai xogos configurados
+  
+  <% else %>
+  
+  <table style="border:none">
+	
+    <!-- <tr>
+      <th width="20%">Nome</th>
+      <th width="50%">Descrición</th>
+      <th>Opcións</th>
+    </tr> -->
+ 
+    <% @games.each do |game| %>
+      <tr style="float:left">
+        <td>
+          <div class="panel panel-info">
+			<div class="panel-heading">
+			  <h3 class="panel-title"><%= game.title %></h3>
+			</div>
+			<div class="panel-body">
+			  <img src="<%= game.photo %>" class="game_image_properties">	
+			  <%= game.description %>
+			</div>
+			<div class="panel-footer">
+			  <%= link_to 'Trocar', edit_game_path(game) %>
+              <%= link_to 'Comezar/reanudar', game_path(game) %>
+              <%= link_to 'Eliminar', user_game_path(@user, game), method: :delete, data: { confirm: 'Desexa eliminar o xogo?' } %>
+            </div>
+		  </div>
+        </td>
+      </tr>
+    <% end %>
+	
+  </table>
+
+  <% end %>
+  
+</div>
+
+<div class="table_games_options">
+	
+  <%= link_to 'Novo xogo', new_user_game_path(@user) %>
+  	
+</div>	
+	

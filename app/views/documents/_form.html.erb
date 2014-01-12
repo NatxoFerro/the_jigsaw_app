@@ -1,0 +1,50 @@
+<%= form_for(@document) do |f| %>
+
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "erro") %> evitaron a grabacion do documento:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="label">
+    <%= f.label :Nome %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :name %>
+  </div>
+  <div class="label">
+    <%= f.label :Descrición %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :description %>
+  </div>
+  <div class="label">
+    <%= f.label :URL %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :URL %>
+  </div>
+  <div class="label">
+    <%= f.label :Tipo_de_recurso %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :resource_type %>
+  </div>
+  <div class="label">
+    <%= f.label :ID_do_recurso %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :resource_id %>
+  </div>
+  
+  <div class="button_for_form">
+    <%= submit_tag 'Gardar documento', class:"button" %>
+  </div>
+  
+<% end %>

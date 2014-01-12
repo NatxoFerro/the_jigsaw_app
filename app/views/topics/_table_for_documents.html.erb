@@ -1,0 +1,32 @@
+<% if @documents.empty? %>
+
+  <p>Non hai documentos neste xogo<br/>Engada algún dende o formulario da dereita</p>
+
+<% else %>
+	  
+  <p><table class="game_edit_table">
+		
+    <tr>
+	  <th width="20%" align="center">Nome</th>
+	  <th width="40%" align="center">Descrición</th>
+	  <th align="center">Opcións</th>
+	</tr>
+						
+	<% @documents.each do |document| %>
+	<tr>
+	  <td width="20%" align="left"><%= document.name %></td>
+	  <td width="40%" align="left"><%= document.description %></td>
+	  <td align="center">
+	  	<%= link_to 'Amosar', game_topic_path(@game, document) %>
+	    <%= link_to 'Trocar', edit_game_topic_path(@game, document) %>
+	    <%= link_to 'Eliminar', game_topic_path(@game, document), method: :delete, data: { confirm: 'Eliminar documento?' } %></td>
+	</tr>
+	<% end %>
+	  
+  </table></p>
+	
+  <p>
+  	<%= link_to 'Eliminar todos', game_del_docs_path(@game), data: { confirm: 'Eliminar todos os documentos do xogo?' } %>
+  </p>
+  	
+<% end %>

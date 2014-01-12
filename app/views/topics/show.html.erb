@@ -1,0 +1,64 @@
+<div class="game_edit_title">
+	
+  <h1>Configuración do xogo "<%= @game.title %>"</h1>
+  
+</div>
+
+<div class="game_edit_info">
+	
+  <div class="game_edit_subtitle">	
+    <h2>Amosando documento "<%= @document.name %>"</h2>
+    <p id="notice"><%= notice %></p>
+  </div>
+  
+  <div class="game_edit_form">	
+  
+  <div class="game_edit_form_label">
+    <b>Nome:</b>
+  </div>
+  <div class="game_edit_form_data">  
+    <%= @document.name %>
+  </div>
+  
+  <div class="game_edit_form_label">
+    <b>Descrición:</b>
+  </div>
+  <div class="game_edit_form_data">  
+    <%= @document.description %>
+  </div>
+  
+  <div class="game_edit_form_label">
+    <b>URL:</b>
+  </div>
+  <div class="game_edit_form_data">  
+    <%= @document.URL %>
+  </div>
+  
+  <div class="game_edit_form_label">
+    <b>Tipo de recurso:</b>
+  </div>
+  <div class="game_edit_form_data">  
+    <%= @document.resource_type %>
+  </div>
+  
+  <div class="game_edit_form_label">
+    <b>Denominación do recurso:</b>
+  </div>
+  <div class="game_edit_form_data">  
+    <% if @document.resource_type == 'Jigsaw' %>
+	  <%= @document.resource.title %>
+	<% elsif @document.resource_type == 'User' %>
+	  <%= @document.resource.name %>
+	<% end %>    
+  </div>
+  
+  </div>
+  
+</div>
+
+<div class="game_edit_options"> 
+	
+  <%= link_to 'Voltar', game_topics_path(@game) %> |
+  <%= link_to 'Trocar', edit_game_topic_path(@game, @document) %>
+
+</div>

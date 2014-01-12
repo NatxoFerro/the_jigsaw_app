@@ -1,0 +1,25 @@
+  <div class="game_docs">
+		
+    <h3>Documentos</h3>
+	
+	<% if @documents.empty? %>
+	  Non hai documentos que amosar
+	<% else %>
+	  
+		<% @documents.each do |document| %>
+		
+		<div class="game_doc">
+		  <div class="game_doc_photo">
+		    <img src="<%= document.URL %>" class="game_doc_photo_attributes" alt="No funciona">
+		  </div>
+		  <div class="game_doc_name">
+			<p><%= document.name %></p>
+			<p><%= document.description %></p>
+		  </div>
+		</div>
+			
+		<% end %>
+	
+	<% end %>
+	
+  </div>

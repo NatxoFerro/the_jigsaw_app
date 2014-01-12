@@ -1,0 +1,55 @@
+<header>
+
+  <div align="center">	
+    <h1>Listado de accesos á plataforma</h1>
+    <p id="notice"><%= notice %></p>
+  </div>
+  
+</header>
+
+<section>
+	
+<div align="center">
+	
+<table width="75%">
+  <tr>
+  	<th width="5%">ID</th>
+    <th width="17%">Categoría</th>
+    <th width="31%">Nome e apelidos</th>
+    <th width="25%">Acceso</th>
+    <th>Opcións</th>
+  </tr>
+  <% @logins.each do |login| %>
+    <% @user = User.find(login.user) %>
+    <tr>
+      <td width="5%" align="center"><%= @user.id %></td>
+      <td width="17%" align="center">
+      	<% if @user.tipe == 0 %>Administrador
+      	<% elsif @user.tipe == 1 %>Mestre
+      	<% elsif @user.tipe == 2 %>Estudante
+      	<% end %>
+      	</td>
+      <td width="31%" align="left"><%= @user.name %> <%= @user.surname1 %> <%= @user.surname2 %></td>
+      <td width="25%" align="right"><%= login.created_at %></td>
+      <td align="center">
+      	<%= link_to 'Eliminar', login, method: :delete %> |
+      	<%= link_to 'Trocar', edit_login_path(login) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= will_paginate(@logins, :class=>"flickr_pagination", :previous_label=>"Anterior", :next_label=>"Seguinte") %> <!-- , :page_links => false, :container => false %> -->
+</p>
+
+</div>
+
+</section>
+
+<footer>
+ 
+  <div align="center">
+    <%= link_to 'Páxina principal', user_admin_path %>
+  </div>
+  
+</footer>

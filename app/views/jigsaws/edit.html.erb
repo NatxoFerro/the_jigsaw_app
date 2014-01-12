@@ -1,0 +1,19 @@
+<div class="admin_title">
+	
+  <h1>Trocando xogo "<%= @jigsaw.title %>"</h1>
+
+  <p id="notice"><%= notice %></p>
+		
+</div>
+
+<div class="admin_info">
+	
+  <%= render 'form' %>	
+	  	  	    
+</div>
+
+<div class="admin_options"> 
+	
+  <%= link_to 'Voltar', jigsaws_path %> | <%= link_to 'Amosar', @jigsaw %>
+	
+</div>

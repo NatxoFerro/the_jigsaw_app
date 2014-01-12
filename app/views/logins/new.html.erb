@@ -1,0 +1,64 @@
+<!-- <div class="login_title">
+
+  <h1>The Jigsaw App!</h1>
+	
+  <p id="error"><%= notice %></p>
+  	
+</div>
+
+<div class="login_data">
+
+  <p>Benvido a plataforma de ensino "The Jigsaw App!".<br />Introduza as súas credenciais para acceder á aplicación.</p>
+  
+  <%= form_for @login do |login| %>
+
+    <%= fields_for @user do |user| %>
+  	<div class="login_label" >
+      <%= user.label :alias %>
+    </div>  
+    <div class="login_user">
+      <%= user.text_field :nick %>
+    </div>
+    <div class="login_label" >
+      <%= user.label :contrasinal %>
+    </div>
+    <div class="login_user" >  
+      <%= user.password_field :password %>
+    </div>
+    <% end %>
+  
+  <div class="button_for_form">
+    <%= login.submit "Comezar", class: "button" %>
+  </div>
+
+  <% end %>
+  
+</div> -->
+
+<!-- <div class="container">
+
+  <form class="form-signin" role="form">
+  	<h2 class="form-signin-heading">Please sign in</h2>
+ 	<input type="text" class="form-control" placeholder="Email address" required autofocus>
+    <input type="password" class="form-control" placeholder="Password" required>
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+
+</div> -->
+
+<div class="container">
+
+  <%= form_for @login, html: {class:"form-signin", role:"form"} do |login| %>
+  	<h2 class="form-signin-heading">The Jigsaw App</h2>
+  	<%= fields_for @user do |user| %>
+  	  <%= user.text_field :nick, class:"form-control", placeholder:"Nome de usuario", required:"true", autofocus:"true", title:"Introduza o seu nome de usuario", oninvalid:"this.setCustomValidity('Introduza o seu nome de usuario')" %>
+      <%= user.password_field :password, class:"form-control", placeholder:"Contrasinal", required:"true", title:"Introduza o seu contrasinal", oninvalid:"this.setCustomValidity('Introduza o seu contrasinal')" %>
+    <% end %>
+    <%= login.submit "Comezar", class: "btn btn-lg btn-primary btn-block" %>
+  <% end %>
+
+</div>
+

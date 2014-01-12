@@ -1,0 +1,19 @@
+  <div class="game_students">
+		
+	<h3>Estudantes</h3>
+	
+	<% if @groups.empty? %>
+	  Non hai estudantes que amosar
+	<% else %>
+	
+		<% @groups.each do |group| %>
+		
+		  <% @users = group.users %>
+		  
+		  <%= render 'list_for_users' %> 
+			
+		<% end %>
+
+	<% end %>
+	
+  </div>

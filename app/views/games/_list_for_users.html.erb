@@ -1,0 +1,11 @@
+  <% @users.each do |user| %>
+    <div class="game_student">
+	  <div class="game_student_name">
+		<%= user.name %>
+	  </div>
+	  <div class="game_student_photo">
+	    <img src="<%= user.photo %>" class="game_student_photo_attributes" alt="<%= user.photo %>">
+	  </div>		
+	</div>
+  <% end %>
+  

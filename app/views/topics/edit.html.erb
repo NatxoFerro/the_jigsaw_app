@@ -1,0 +1,24 @@
+<div class="game_edit_title">
+	
+  <h1>Configuración do xogo "<%= @game.title %>"</h1>
+    
+</div>
+
+<div class="game_edit_info">
+	
+  <div class="game_edit_subtitle">
+	<h2>Trocando documento "<%= @document.name %>"</h2>
+	<p id="notice"><%= notice %></p>
+  </div>
+  <div class="game_edit_form">
+    <%= render 'form_for_document' %>
+  </div>
+
+</div>
+
+<div class="game_edit_options"> 
+	
+  <%= link_to 'Voltar', game_topics_path(@game) %> |
+  <%= link_to 'Amosar', game_topic_path(@game, @document) %>
+  
+</div>

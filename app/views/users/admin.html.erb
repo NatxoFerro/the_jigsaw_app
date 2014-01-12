@@ -1,0 +1,59 @@
+<!-- <div class="admin_title">
+
+  <h1>Administración da plataforma</h1>
+
+  <p id="notice"><%= notice %></p>
+  
+</div>
+
+<div class="admin_info" align="center">
+
+  <p><%= link_to 'Control de accesos', logins_path %></p>
+  <p><%= link_to 'Lista de usuarios', users_path %></p>
+  <p><%= link_to 'Lista de xogos', jigsaws_path %></p>
+  <p><%= link_to 'Lista de documentos', documents_path %></p>
+
+</div>
+
+<div class="admin_options"> 
+
+  <%= link_to 'Saír', new_login_path %>
+
+</div> -->
+
+<header>
+
+  <h1 align="center">Administración da plataforma</h1>
+
+  <% if !notice.blank? %>
+  <div align="center">
+    <div class="well well-sm" style="max-width:250px">
+      <p id="notice" align="center"><%= notice %></p>
+    </div>
+  </div>
+  <% end %>
+  
+</header>
+
+<section>
+
+  <div align="center">	
+    <div style="background-color:#FFFFFF;max-width:200px;margin-bottom:50px">
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to 'Control de accesos', logins_path %></li><!-- class="active" -->
+        <li><%= link_to 'Lista de usuarios', users_path %></li>
+        <li><%= link_to 'Lista de xogos', jigsaws_path %></li>
+        <li><%= link_to 'Lista de documentos', documents_path %></li>
+      </ul>
+    </div>
+  </div>
+  
+</section>
+
+<footer> 
+
+  <div align="center">
+    <%= link_to 'Saír', new_login_path %>
+  </div>
+  
+</footer>

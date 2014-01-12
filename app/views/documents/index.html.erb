@@ -1,0 +1,53 @@
+<div class="admin_title">
+	
+	<h1>Lista de documentos</h1>
+
+    <p id="notice"><%= notice %></p>
+     
+</div>
+
+<div class="admin_info" align="center">
+	
+	<table class="borders" width="60%">
+		
+	  <tr>
+	    <th width="20%" align="center">Nome</th>
+	    <th width="15%" align="center">Recurso</th>
+	    <th width="25%" align="center">Denom. do recurso</th>
+	    <th align="center">Opcións</th>
+	  </tr>
+	
+	  <% @documents.each do |document| %>
+	  <tr>
+	    <td width="20%" align="center"><%= document.name %></td>
+	    <td width="15%" align="center"><%= document.resource_type %></td>
+	    <td width="25%" align="center">
+	      <% if document.resource %>
+	    	<% if document.resource_type == 'Jigsaw' %>
+	    	    <%= document.resource.title %>
+	    	<% elsif document.resource_type == 'User' %>
+	    		<%= document.resource.name %>
+	    	<% end %>
+	      <% else %>
+	        <%= document.resource_id %>
+	      <% end %>	
+	    </td>
+	    <td align="center">
+	    	<%= link_to 'Amosar', document %>
+	  	    <%= link_to 'Trocar', edit_document_path(document) %>
+	   	    <%= link_to 'Eliminar', document, method: :delete, data: { confirm: 'Eliminar documento?' } %></td>
+	  </tr>
+	  <% end %>
+	  
+	</table>
+
+	<%= will_paginate @documents %>
+	
+</div>
+
+<div class="admin_options"> 
+	
+  <%= link_to 'Novo documento', new_document_path %> |
+  <%= link_to 'Páxina principal', user_admin_path %>
+
+</div>

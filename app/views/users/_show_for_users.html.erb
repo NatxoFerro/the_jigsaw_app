@@ -1,0 +1,88 @@
+  <p>
+    <div class="etiqueta">
+      <b>Nome:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.name %>
+    </div>
+  </p>
+  <p>
+    <div class="etiqueta">
+      <b>Apelidos:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.surname1 %> <%= @user.surname2 %>
+    </div>
+  </p>
+  <p>
+    <div class="etiqueta">
+      <b>Email:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.email %>
+    </div>
+  </p>
+  <p>
+    <div class="etiqueta">
+      <b>Tipo:</b>
+    </div>
+    <div class="dato">
+      <% if @user.tipe == 1 %>	  
+        Mestre
+      <% else %>
+        Estudante
+      <% end %>    
+    </div>
+  </p>
+  <% if @user.tipe != 1 %>
+  <p>
+    <div class="etiqueta">
+      <b>Clase:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.class_group %>
+    </div>
+  </p>
+  <% end %>
+  <p>
+    <div class="etiqueta">
+      <b>Alias:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.nick %>
+    </div>
+  </p>
+  <p>
+    <div class="etiqueta">
+      <b>Contrasinal:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.password %>
+    </div>
+  </p>
+  <p>
+    <div class="etiqueta">
+      <b>Xogos configurados:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.jigsaws.count %>
+    </div>
+  </p>
+  <% if @user.tipe != 1 %>
+  <p>
+    <div class="etiqueta">
+      <b>Documentos xerados:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.documents.count %>
+    </div>
+  </p>
+  <p>
+    <div class="etiqueta">
+      <b>Xogos comezados:</b>
+    </div>
+    <div class="dato">  
+      <%= @user.groups.count %>
+    </div>
+  </p>
+  <% end %>

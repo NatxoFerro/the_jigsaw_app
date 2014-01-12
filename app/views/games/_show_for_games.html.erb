@@ -1,0 +1,36 @@
+<div class="game_data">
+	
+  <div class="game_photo" align="right">
+	<img class="game_photo_attributes" src="<%= @game.photo %>" alt="<%= @game.title %>">
+  </div>
+			  
+  <div class="game_information">
+		
+	<div class="game_info_label">
+	  <b>Título:</b>
+	</div>
+	<div class="game_info_data">  
+	  <%= @game.title %>
+	</div>
+	<div class="game_info_label">
+	  <b>Descrición:</b>
+	</div>
+	<div class="game_info_data">   
+	  <%= @game.description %>
+	</div>
+	<div class="game_info_label">
+	  <b>URL da foto:</b>
+	</div>
+	<div class="game_info_data">  
+	  <%= @game.photo %>
+	</div>
+	<div class="game_info_label">
+	  <b>Fase:</b>
+	</div>
+	<div class="game_info_data">  
+	  <%= @game.phase %>
+	</div>
+
+  </div>
+
+</div>

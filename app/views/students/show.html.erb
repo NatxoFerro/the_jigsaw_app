@@ -1,0 +1,41 @@
+<div class="title">
+
+  <h1>Xogos configurados para <%= @student.name %></h1>
+
+  <p id="notice"><%= notice %></p>
+  		
+</div>
+
+<div class="info" align="center">
+ 	
+ 	<div class="student_show_subtitle">
+	  <h3>Lista de xogos de <%= @student.name %></h3>
+	</div>
+    
+    <div class="student_show_games">
+      <% if @student.groups.empty? %>
+        Non hai xogos configurados para este estudante
+      <% else %>
+        <% @student.groups.each do |group| %>
+          <%= link_to student_game_play_path(@student, group.jigsaw) do %>
+          <div class="student_show_game">
+          	<div class="student_show_image">
+	          <img src="<%= group.jigsaw.photo %>" class="student_show_image_properties">
+	        </div>
+	        <div class="student_show_game_data">
+	          <div class="student_show_game_title"><%= group.jigsaw.title %></div>
+	          <div class="student_show_game_description"><%= group.jigsaw.description %></div>
+	        </div>  
+	      </div>
+	      <% end %>
+        <% end %>
+      <% end %>  
+    </div>
+    
+</div>
+
+<div class="options"> 
+	
+  <%= link_to 'Páxina principal', user_path(@student) %>
+  
+</div>

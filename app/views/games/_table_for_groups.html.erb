@@ -1,0 +1,33 @@
+<div class="table_title">
+
+  <h3>Xogos comezados</h3>
+
+</div>
+
+<div class="table_data">
+	
+  <% if @groups.count == 0 %>
+
+  Non hai xogos comezados
+  
+  <% else %>
+
+    <table class="borders">
+	
+      <tr>
+        <th>Nome</th>
+        <th>Fase</th>
+      </tr>
+ 
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.jigsaw.title %></td>
+        <td><%= group.jigsaw.phase %></td>
+      </tr>
+    <% end %>
+
+    </table>
+
+  <% end %>
+
+</div>

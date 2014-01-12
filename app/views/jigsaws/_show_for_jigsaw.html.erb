@@ -1,0 +1,28 @@
+	<div class="label">
+	  <b>Título:</b>
+	</div>
+	<div class="data">  
+	  <%= @jigsaw.title %>
+	</div>
+	<div class="label_big">
+	  <b>Descrición:</b>
+	</div>
+	<div class="data_big">   
+	  <%= @jigsaw.description %>
+	</div>
+	<div class="label">
+	  <b>Fase:</b>
+	</div>
+	<div class="data">  
+	  <%= @jigsaw.phase %>
+	</div>
+	<div class="label">
+	  <b>Administrador:</b>
+	</div>
+	<div class="data">
+	  <% if @jigsaw.user.blank? %>
+	    -
+	  <% else %>	  
+	    <%= @jigsaw.user.name %>
+	  <% end %>
+	</div>

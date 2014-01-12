@@ -1,0 +1,220 @@
+//body
+//{
+  // width:1000px;
+  // height:700px;
+  // margin:0;
+  // padding:0;
+  // border-width:1px;
+  // border-style:solid;
+  // border-color:black;
+  // background-color:#FFFFFF;
+  // text-align:center;
+  // font-family:verdana,arial,helvetica,sans-serif;
+  // font-size:13px;
+  // line-height:18px;
+  // color:#333;
+// }
+
+#notice {
+  color:green;
+}
+
+#error
+{
+  color:red;  
+}
+
+.orange_text
+{
+  color:orange;
+}
+
+.red_text
+{
+  color:red;
+}
+
+.green_text
+{
+  color:green;  
+}
+
+// -------------
+// HTML Elements
+// -------------
+
+textarea
+{
+  width:200px;
+  height:120px;
+}
+
+input
+{
+  width:200px;
+  &.button
+  {
+  width:175px;
+  }
+}
+
+table
+{
+  border-width:1px;
+  border-style:solid;
+  border-color:black;
+  background-color:#FFFFFF; 
+  border-collapse:collapse;
+}
+
+th
+{
+  height:30px;
+  border:1px solid black;  
+}
+
+td
+{
+  height:30px; 
+}
+
+pre {
+  background-color:#eee;
+  padding:10px;
+  font-size:11px;
+}
+
+a {
+  color:#000;
+  text-decoration:none;
+  color: #000;
+  &:link 
+  {
+    
+  }
+  &:visited 
+  {
+    
+  }
+  &:hover 
+  {
+    text-decoration:underline;
+  }
+  &:active
+  {
+    
+  }
+}
+
+p
+{
+  &.errors_title
+  {
+    text-align:left;
+    color:red;
+  }
+  &.errors
+  {
+    text-align:left;
+    color:red;
+  } 
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom:10px;
+    padding: 10px 10px 10px 10px;
+  }
+}
+
+// -----
+// FORMS
+// -----
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+.label
+{
+  width:49%;
+  height:22px;
+  float:left;
+  text-align:right;
+  padding:1px;
+}
+
+.data
+{
+  width:49%;
+  height:22px;
+  float:right;
+  text-align:left;
+  padding:1px;
+}
+
+.label_big
+{
+  width:49%;
+  height:125px;
+  float:left;
+  text-align:right;
+  padding:1px;
+}
+
+.data_big
+{
+  width:49%;
+  height:125px;
+  float:right;
+  text-align:left;
+  padding:1px;
+}
+
+.sentence
+{
+  width:100%;
+  float:left;
+  margin-top:40px;
+}
+
+.button_for_form
+{
+  width:100%;
+  height:120px;
+  float:left;
+  padding-top:50px;
+}
+
+#errors_from_form
+{
+  width:50%;
+  margin-left:400px; 
+  float:center;
+}
+

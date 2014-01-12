@@ -1,0 +1,35 @@
+<div class="table_title">
+	
+  <h3>Xogos configurados</h3>
+  	
+</div>
+
+<div class="table_data">
+
+  <% if @jigsaws.count == 0 %>
+
+  Non hai xogos configurados
+  
+  <% else %>
+
+  <table class="borders">
+	
+    <tr>
+      <th>Nome</th>
+      <th>Opcións</th>
+    </tr>
+ 
+    <% @jigsaws.each do |jigsaw| %>
+      <tr>
+        <td><%= jigsaw.title %></td>
+        <td><%= link_to 'Trocar', edit_user_jigsaw_path(jigsaw) %>
+            <%= link_to 'Comezar/reanudar', user_jigsaw_path(@user) %>
+            <%= link_to 'Eliminar', edit_user_jigsaw_path(jigsaw) %></td>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <% end %>
+  
+</div>

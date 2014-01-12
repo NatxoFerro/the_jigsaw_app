@@ -1,0 +1,54 @@
+<%= form_for(@jigsaw) do |f| %>
+
+  <% if @jigsaw.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jigsaw.errors.count, "erro") %> evitaron gardar os datos:</h2>
+      <ul>
+        <% @jigsaw.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="label">
+    <%= f.label :Título %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :title %>
+  </div>
+  <div class="label_big">
+    <%= f.label :Descrición %>
+    </div>  
+  <div class="data_big">
+    <%= f.text_area :description %>
+  </div>
+  <div class="label">
+    <%= f.label :Foto %>
+    </div>  
+  <div class="data">
+    <%= f.text_field :photo %>
+  </div>
+  <div class="label">
+    <%= f.label :Fase %>
+    </div>  
+  <div class="data">
+    <%= f.text_field :phase %>
+  </div>
+  
+  <p class="sentence">Para asociar o xogo a algún usuario, indique o nome no seguinte campo.</p>
+  
+  <%= fields_for @user do |user_form| %>
+  	<div>
+      <%= user_form.label :Usuario %>
+    </div>  
+  	<div>
+  	  <%= user_form.text_field :name %>
+  	</div>  	
+  <% end %>
+  
+  <div class="button_for_form">
+    <%= submit_tag 'Gardar datos', class:"button" %>
+  </div>  
+  
+<% end %>

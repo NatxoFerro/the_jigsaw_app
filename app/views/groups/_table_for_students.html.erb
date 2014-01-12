@@ -1,0 +1,29 @@
+<table class="game_edit_table">
+	
+  <tr>
+    <th width="40%" align="center">Estudante</th>
+    <th align="center">Engadir estudante ao...</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <% @groups_countbis = 0 %>
+    <tr>
+      <td width="40%" align="left"><%= user.name %></td>
+      <td align="center">
+      	<%= link_to 'Xogo', edit_game_student_path(@game, user) %>
+      	<% @groups.each do |group| %>
+      	  <% @groups_countbis += 1 %>
+      	  <% if group.users.count < @game.documents.count %>
+      	    |
+      	    <%= link_to edit_group_student_path(group, user) do %>
+      	      Grupo <%= @groups_countbis %>	
+      	    <% end %>
+      	  <% end %>
+      	<% end %>
+     </td>
+    </tr>
+  <% end %>
+  
+</table>
+
+<%= will_paginate @users %>

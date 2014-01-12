@@ -1,0 +1,49 @@
+<%= form_for @game, url: user_games_path(@user) do |f| %>
+
+  <% if @game.errors.any? %>
+    <div id="errors_from_form">
+      <p class="errors"><%= pluralize(@game.errors.count, "erro") %> evitaron gardar os datos:
+      <% @game.errors.full_messages.each do |msg| %>
+          <br/><output >- <%= msg %></output>
+      <% end %>
+      </p>
+    </div>
+  <% end %>
+
+  <div class="label">
+    <%= f.label :Título %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :title %>
+  </div>
+  <div class="label_big">
+    <%= f.label :Descrición %>
+    </div>  
+  <div class="data_big">
+    <%= f.text_area :description, class: "admin_text_area" %>
+  </div>
+  <div class="label">
+    <%= f.label :Foto %>
+    </div>  
+  <div class="data">
+    <%= f.text_field :photo %>
+  </div>
+  <div class="label">
+    <%= f.label :Fase %>
+    </div>  
+  <div class="data">
+    <%= f.text_field :phase %>
+  </div>
+  
+  <div class="label">
+    <%= f.label :Administrador %>
+    </div>  
+  <div class="data">
+    <%= f.text_field :user_id %>
+  </div>
+  
+  <div class="botton_for_form">
+    <%= f.submit "Gardar xogo", class: "" %>
+  </div>  
+  
+<% end %>

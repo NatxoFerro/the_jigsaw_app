@@ -1,0 +1,24 @@
+<header>
+  <div>	
+	<ol class="breadcrumb">
+      <li><%= link_to 'Páxina principal', user_path(@user) %></li>
+      <li class="active">Xogos</li>
+    </ol>
+  </div>
+  <div align="center">	
+    <h1>Xestión de xogos de <%= @user.name %></h1>
+    <p id="notice"><%= notice %></p>
+  </div>
+</header>
+
+<section>
+  <div align="center">
+    <%= render 'table_for_games'%>
+  </div>
+</section>
+
+<footer> 
+  <div align="center">	
+    <%= link_to 'Páxina principal', user_path(@user) %>  
+  </div>
+</footer>

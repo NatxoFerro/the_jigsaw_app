@@ -1,0 +1,75 @@
+<%= form_for(@user) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> impediron a grabación na base de datos:</h2>
+	  <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="label" >
+    <%= f.label :Nome %>
+  </div>  
+  <div class="data">
+    <%= f.text_field :name %>
+  </div>
+  <div class="label">
+    <%= f.label :Primeiro_apelido %>
+  </div>
+  <div class="data">  
+    <%= f.text_field :surname1 %>
+  </div>
+  <div class="label">
+    <%= f.label :Segundo_apelido %>
+  </div>
+  <div class="data">  
+    <%= f.text_field :surname2 %>
+  </div>
+  <div class="label">
+    <%= f.label :Foto %>
+  </div>
+  <div class="data">  
+    <%= f.text_field :photo %>
+  </div>
+  <div class="label">
+    <%= f.label :Email %>
+  </div>
+  <div class="data">  
+    <%= f.text_field :email %>
+  </div>
+  <div class="label">
+    <%= f.label :Tipo %>
+ </div>
+  <div class="data">   
+    <%= f.text_field :tipe %>
+  </div>
+  <div class="label">
+    <%= f.label :Grupo %>
+  </div>
+   <div class="data">   
+    <%= f.text_field :class_group %>
+   </div>
+  <div class="label">
+    <%= f.label :Alias %>
+  </div>
+  <div class="data">  
+    <%= f.text_field :nick %>
+  </div>
+  <div class="label">
+    <%= f.label :Contrasinal %>
+  </div>
+  <div class="data">  
+    <%= f.text_field :password %>
+  </div>
+  
+  <br />
+  
+  <div class="button_for_form">
+    <%= submit_tag 'Trocar datos' %>
+  </div> 
+  
+<% end %>

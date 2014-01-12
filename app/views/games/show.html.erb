@@ -1,0 +1,23 @@
+<div class="game_title">
+	
+	<h1>Información do xogo</h1>
+
+	<p id="notice"><%= notice %></p>
+	 
+</div>
+	
+<div class="game_info">
+	
+	  <%= render 'show_for_games' %>
+  	  	
+      <%= render 'list_for_students' %>
+	  
+	  <%= render 'list_for_docs' %>
+	  	  		
+</div>
+
+<div class="game_options"> 
+	
+	<%= link_to 'Voltar', user_games_path(@user) %>
+	
+</div>

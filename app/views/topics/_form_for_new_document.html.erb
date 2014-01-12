@@ -1,0 +1,50 @@
+<%= form_for @document, url: game_topics_path(@game) do |f| %>
+
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> evitaron a grabacion do documento:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="game_edit_form_label">
+    <%= f.label :Nome, class: "game_edit_form_left_element" %>
+  </div>  
+  <div class="game_edit_form_data">
+    <%= f.text_field :name, class: "game_edit_form_right_element" %>
+  </div>
+  <div class="game_edit_form_label">
+    <%= f.label :Descrición, class: "game_edit_form_left_element" %>
+  </div>  
+  <div class="game_edit_form_data">
+    <%= f.text_field :description, class: "game_edit_form_right_element" %>
+  </div>
+  <div class="game_edit_form_label">
+    <%= f.label :URL, class: "game_edit_form_left_element" %>
+  </div>  
+  <div class="game_edit_form_data">
+    <%= f.text_field :URL, class: "game_edit_form_right_element" %>
+  </div>
+  <div class="game_edit_form_label">
+    <%= f.label :Tipo_de_recurso, class: "game_edit_form_left_element" %>
+  </div>  
+  <div class="game_edit_form_data">
+    <%= f.text_field :resource_type, class: "game_edit_form_right_element" %>
+  </div>
+  <div class="game_edit_form_label">
+    <%= f.label :ID_do_recurso, class: "game_edit_form_left_element" %>
+  </div>  
+  <div class="game_edit_form_data">
+    <%= f.text_field :resource_id, class: "game_edit_form_right_element" %>
+  </div>
+  
+  <div class="game_edit_form_button">
+    <%= submit_tag 'Engadir documento' %>
+  </div>
+  
+<% end %>

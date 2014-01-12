@@ -1,0 +1,52 @@
+<div class="admin_title">
+
+  <h1>Páxina principal de <%= @user.name %></h1>
+
+  <p id="notice"><%= notice %></p>
+  		
+</div>
+
+<div class="admin_info" align="center">
+ 	
+ 	<div class="user_show_image">
+	  <%= link_to edit_user_path(@user) do %>
+	    <img src="/assets/user_info.jpeg" class="user_show_image_properties">
+	  <% end %>
+	</div>
+    <div class="user_show_explanation">
+      <%= link_to edit_user_path(@user) do %>
+        <p>Amosar/trocar os meus datos persoais</p>
+	  <% end %>
+	</div>
+    
+    <% if @user.tipe == 1 %>
+ 	  <div class="user_show_image">
+	    <%= link_to user_games_path(@user) do %>
+	      <img src="/assets/games.jpeg" class="user_show_image_properties">
+	    <% end %>
+	  </div>
+      <div class="user_show_explanation">
+        <%= link_to user_games_path(@user) do %>
+          <p>Xestionar os meus xogos</p>
+	    <% end %>
+      </div>
+    <% else %>
+      <div class="user_show_image">
+	    <%= link_to student_path(@user) do %>
+	      <img src="/assets/games.jpeg" class="user_show_image_properties">
+	    <% end %>
+	  </div>
+      <div class="user_show_explanation">
+        <%= link_to student_path(@user) do %>
+          <p>Acceder aos meus xogos</p>
+	    <% end %>
+      </div>
+    <% end %>
+    
+</div>
+
+<div class="admin_options"> 
+	
+  <%= link_to 'Saír', new_login_path %>
+  
+</div>

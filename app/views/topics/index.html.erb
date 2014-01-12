@@ -1,0 +1,39 @@
+<div class="game_edit_title">
+	
+  <h1>Configuración do xogo "<%= @game.title %>"</h1>
+   
+</div>
+
+<div align="center">
+	
+  <ul class="nav nav-tabs nav-justified">
+    <li><%= link_to 'Datos', edit_game_path(@game) %></li>
+    <li class="active"><%= link_to 'Documentos', game_topics_path(@game) %></li>
+    <li><%= link_to 'Estudantes', game_groups_path(@game) %></li>
+  </ul>
+
+  
+  <div class="game_edit_data">
+  	
+  	<div class="game_edit_subtitle">
+	  <h2>Documentos engadidos ao xogo</h2>
+	  <p id="notice"><%= notice %></p>
+	</div>
+	
+  	<div class="game_edit_topics" align="center">
+	  <%= render 'table_for_documents' %>
+    </div>
+	
+	<div class="game_edit_topic_form"> 
+		<%= render 'form_for_new_document' %>		 
+	</div>
+	
+</div>
+  	
+</div>
+
+<div class="game_edit_options"> 
+	
+	<%= link_to 'Rematar', user_games_path(@user) %> 
+
+</div>
